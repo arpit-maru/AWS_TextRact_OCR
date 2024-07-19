@@ -7,8 +7,8 @@ public class Demo {
 
 //            //Generate searchable PDF from local pdf
         	DemoPdfFromLocalPdf localPdf = new DemoPdfFromLocalPdf();
-            localPdf.run("C:\\Users\\USER\\Downloads\\Cherry Blossom FE Lease 2019(1).pdf",
-            		"C:\\Users\\USER\\Downloads\\Cherry Blossom FE Lease 2019(1)_arpit_90_2.pdf");
+            localPdf.run("C:\\Users\\USER\\Downloads\\Sample_in.pdf",
+            		"C:\\Users\\USER\\Downloads\\sample_out.pdf");
 //
 //            //Generate searchable PDF from image in Amazon S3 bucket
 //            DemoPdfFromS3Image s3Image = new DemoPdfFromS3Image();

@@ -15,9 +15,6 @@ import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 import com.amazon.textract.pdf.ImageType;
 import com.amazon.textract.pdf.PDFDocument;
 import com.amazon.textract.pdf.TextLine;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.textract.AmazonTextract;
 import com.amazonaws.services.textract.AmazonTextractClientBuilder;
 import com.amazonaws.services.textract.model.Block;
@@ -30,12 +27,8 @@ public class DemoPdfFromLocalImage {
 
 	private List<TextLine> extractText(ByteBuffer imageBytes) {
 
-		BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIA3FLDYAMVLMJNETHY",
-				"6Zb9oia+nb8TFzMbTrVUT/GYVcDhCewuV5Z/8iVx");
+		AmazonTextract client = AmazonTextractClientBuilder.defaultClient();
 
-		AmazonTextract client = AmazonTextractClientBuilder.standard().withRegion(Regions.AP_SOUTH_1).withCredentials(
-
-				new AWSStaticCredentialsProvider(awsCreds)).build();
 
 		DetectDocumentTextRequest request = new DetectDocumentTextRequest()
 				.withDocument(new Document().withBytes(imageBytes));
